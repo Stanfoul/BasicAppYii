@@ -1,0 +1,1 @@
+DirectoryIndex htaccess.php /basic/web/index.php
