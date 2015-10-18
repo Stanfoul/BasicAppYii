@@ -6,7 +6,7 @@ class MainController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $hello = 'Ïğèâåò ÌÈĞ!!!';
+        $hello = 'ĞŸÑ€Ğ¸Ğ²ĞµÑ‚ ĞœĞ˜Ğ !!!';
         return $this->render(
             'index',
             [

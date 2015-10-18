@@ -1,4 +1,5 @@
 <?php
+use app\assets\AppAsset;
 /**
  * Created by PhpStorm.
  * User: stany_000
@@ -6,17 +7,27 @@
  * Time: 12:00
  */
 /* @var $content string */
+/* @var $this yii\web\View */
+AppAsset::register($this);
+$this->beginPage();
 ?>
 <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
+    <?php $this->registerMetaTag(['name' => 'viewport','content' => 'width=device-width,initial-scale=1']); ?>
     <title><?= Yii::$app->name ?></title>
+    <?php $this->head(); ?>
 </head>
 <body>
-<p>Верхняя часть сайта</p>
+<?php $this->beginBody(); ?>
+<p>Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚СЊ СЃР°Р№С‚Р°</p>
 
 <?= $content ?>
-<p>Нижняя часть сайта</p>
+<p>РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ СЃР°Р№С‚Р°</p>
+<?php $this->endBody(); ?>
 </body>
 </html>
+<?php
+$this->endPage();
+?>
