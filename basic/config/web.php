@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'name' => 'Yii2 приложение',
+    'name' => 'Yii2 РїСЂРёР»РѕР¶РµРЅРёРµ',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'layout' => 'basic',
