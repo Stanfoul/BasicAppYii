@@ -1,5 +1,8 @@
 <?php
 use app\assets\AppAsset;
+use yii\bootstrap\NavBar;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 /**
  * Created by PhpStorm.
  * User: stany_000
@@ -21,10 +24,53 @@ $this->beginPage();
 </head>
 <body>
 <?php $this->beginBody(); ?>
-<p>Верхняя часть сайта</p>
+    <div class="wrap">
+        <?php
+        NavBar::begin(
+            [
+                'brandLabel' => 'Тестовое приложение'
+            ]
+        );
+        ActiveForm::begin([
+            'action' => ['main/search'],
+            'method' => 'get',
+            'options' =>
+            ['class' => 'navbar-form navbar-right']
+        ]);
+        echo '<div class="input-group">';
+        echo Html::input(
+            'type: text',
+            'search',
+            '',
+            [
+                'placeholder' => 'Найти...',
+                'class' => 'form-control'
+            ]
+        );
+        echo '<span class="input-group-btn">';
+        echo Html::submitButton(
+            '<span class="glyphicon glyphicon-search"></span>',
+            [
+                'class' => 'btn btn-success'
+            ]
+        );
+        echo '</span></div>';
+        ActiveForm::end();
 
-<?= $content ?>
-<p>Нижняя часть сайта</p>
+        NavBar::end();
+        ?>
+        <div class="container">
+            <?= $content ?>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="badge">
+                <span class="glyphicon glyphicon-copyright-mark"></span> Stany <?= date('Y')?>
+            </span>
+        </div>
+    </footer>
+
 <?php $this->endBody(); ?>
 </body>
 </html>
