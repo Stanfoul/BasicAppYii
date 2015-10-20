@@ -3,6 +3,8 @@ use app\assets\AppAsset;
 use yii\bootstrap\NavBar;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\Modal;
 /**
  * Created by PhpStorm.
  * User: stany_000
@@ -56,6 +58,42 @@ $this->beginPage();
         );
         echo '</span></div>';
         ActiveForm::end();
+
+        echo Nav::widget([
+            'items' => [
+                [
+                'label'=>'Главная<span class="glyphicon glyphicon-home"></span>',
+                'url'=>['main/index']
+                ],
+                [
+                    'label' => 'Из коробки <span class="glyphicon glyphicon-inbox"></span>',
+                    'items' => [
+                        '<li class = "dropdown-header">Расширения</li>',
+                        '<li class="divider"></li>',
+                        [
+                            'label' => 'Перейти к просмотру',
+                            'url' => ['widget-test/index']
+                        ]
+                    ]
+                ],
+                '<li>
+                    <a data-toggle="modal" data-target="#modal" style="cursor: pointer">
+                    О проекте<span class="glyphicon glyphicon-question-sign"></span>
+                    </a>
+                </li>'
+            ],
+            'encodeLabels' => false,
+            'options' => [
+                'class' => 'navbar-nav navbar-right'
+            ]
+        ]);
+
+        Modal::begin([
+            'header' =>'<h2>Stany</h2>',
+            'id' =>'modal'
+        ]);
+        echo 'Этим проектом я порабощу мир.';
+        Modal::end();
 
         NavBar::end();
         ?>
