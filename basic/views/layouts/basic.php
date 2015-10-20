@@ -34,7 +34,7 @@ $this->beginPage();
             ]
         );
         ActiveForm::begin([
-            'action' => ['main/search'],
+            'action' => ['/найти'],
             'method' => 'get',
             'options' =>
             ['class' => 'navbar-form navbar-right']
@@ -53,7 +53,8 @@ $this->beginPage();
         echo Html::submitButton(
             '<span class="glyphicon glyphicon-search"></span>',
             [
-                'class' => 'btn btn-success'
+                'class' => 'btn btn-success',
+                'onClick' => 'windows.location.href = this.form.action + "-" + this.form.search.value.replace(/[^\w\a-aё\А-ЯЁ]+/g,"_") + ".html";'
             ]
         );
         echo '</span></div>';
