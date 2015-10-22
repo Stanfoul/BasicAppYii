@@ -1,0 +1,2 @@
+# BasicAppYii
+Прохожу обучение phpnt
