@@ -13,6 +13,9 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
+    public $email;
+    public $status;
+
 
     private $_user = false;
 
@@ -23,11 +26,9 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            // username and password are both required
-            [['username', 'password'], 'required'],
-            // rememberMe must be a boolean value
+            [['username', 'password'], 'required', 'on'=>'default'],
+            ['email', 'email'],
             ['rememberMe', 'boolean'],
-            // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
     }
@@ -75,4 +76,20 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+
+    public function attributeLabels()
+    {
+        return [
+        'username' => 'Имя Пользователя',
+        'password' => 'Пароль',
+        'rememberMe' => 'Запомнить меня'
+
+
+    ];
+
+
+
+    }
 }
+
+
